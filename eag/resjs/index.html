@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Loading…</title>
+<script src="../../fetchPolyfills.js"></script>
+</head>
+<body>
+<script>
+(async () => {
+  const res = await fetch("_raw");
+  const html = new TextDecoder().decode(await res.arrayBuffer());
+  document.open(); document.write(html); document.close();
+})();
+</script>
+</body>
+</html>

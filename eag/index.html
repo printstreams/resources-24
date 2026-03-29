@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launcher</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="/css/main.css" rel="stylesheet">
+		<link rel="stylesheet" href="/css/pages.css" />
+    <!-- vibe coder vibe coder i was too lazy to make smth good -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .launcher {
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: var(--color-4);
+        }
+    </style>
+</head>
+<body>
+    <div class="launcher">
+        <h1>eagler launcher</h1>
+        <div class="option">
+            <label for="version">Version:</label>
+            <select id="version" name="version">
+                <option value="18">1.8</option>
+                <option value="12">1.12</option>
+                <option value="res">Resent Client (1.8)</option>
+                <option value="tuff">Astra Client (1.8)</option>
+                <option value="tuff">Tuff Client (1.12)</option>
+                <option value="pixel">Pixel Client (1.8)</option>
+                <option value="pixel12">Pixel Client (1.12)</option>
+                <option value="vanilla">Vanilla (1.6.4)</option>
+                <option value="lite">Lite (Forge 1.6.4)</option>
+                <option value="explore">Explore (Forge 1.6.4)</option>
+                <option value="magic">Magic (Forge 1.6.4)</option>
+                <option value="skyfactory">Sky Factory (Forge 1.6.4)</option>
+                <option value="tech">Tech (Forge 1.6.4)</option>
+                <option value="ultimate">Ultimate (Forge 1.6.4)</option>
+            </select>
+        </div>
+        <div class="option">
+            <input type="checkbox" id="wasm" name="wasm">
+            <label for="wasm">Use WASM</label>
+        </div>
+        <button onclick="launch()">Launch</button>
+    </div>
+    <script>
+        function launch() {
+            const version = document.getElementById('version').value;
+            const wasm = document.getElementById('wasm').checked;
+            const suffix = wasm ? 'wasm' : 'js';
+            window.location.href = version + suffix + '/';
+        }
+    </script>
+</body>
+</html>
